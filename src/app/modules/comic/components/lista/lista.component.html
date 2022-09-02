@@ -1,0 +1,15 @@
+<div>
+  <h3>Lista de comics disponibles</h3>
+  <input type="text" placeholder="Buscar un comic por su nombre" />
+</div>
+
+<div class="row" *ngFor="let serie of series">
+    <div class="col">
+      <div class="image-container">
+        <img class="image" [src]="serie.imagen" alt="" style="width: 100%;"/>
+        <div class="details">
+          <button class="details__button">Mostrar detalles</button>
+        </div>
+      </div> 
+    </div>
+</div>
