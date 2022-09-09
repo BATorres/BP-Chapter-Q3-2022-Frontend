@@ -40,3 +40,23 @@
     cursor: pointer;
   }
 }
+
+.list {
+  padding-bottom: 1rem;
+  &__searchbar {
+    background-color: #ffffff;
+    border: auto;
+    border-radius: 10px;
+    color: #111e27;
+    padding: 6px 12px;
+    height: 35px;
+    width: 90%;
+  }
+  &__button {
+    border-color: #ffffff;
+    border: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 35px;
+  }
+}
