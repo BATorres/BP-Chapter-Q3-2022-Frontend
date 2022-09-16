@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ComicService } from '../../services/comic.service';
 
@@ -8,6 +8,7 @@ import { ComicService } from '../../services/comic.service';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  @Input() data: any;
   @Output() sendModalResponse: EventEmitter<any> = new EventEmitter(); 
   form: FormGroup;
   disabled: boolean = true;
@@ -19,6 +20,10 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.setForm();
+
+    if (this.data !== undefined) {
+      this.form.patchValue({...this.data});
+    }
   }
 
   setForm() {
@@ -35,13 +40,21 @@ export class FormComponent implements OnInit {
   }
 
   submit() {
-    console.log('si setea?=', this.form.value)
-    this._comicService.createComic(this.form.value).subscribe(
-      (response) => {
-        this.sendModalResponse.emit(false);
-      },
-      (error) => console.error('error', error)
-    );
+    if (this.data !== undefined) {
+      this._comicService.updateComic(this.form.value).subscribe(
+        (response) => {
+          this.sendModalResponse.emit(false);
+        },
+        (error) => console.error(error)
+      );
+    } else {
+      this._comicService.createComic(this.form.value).subscribe(
+        (response) => {
+          this.sendModalResponse.emit(false);
+        },
+        (error) => console.error(error)
+      );
+    }   
   }
 
   cancel() {

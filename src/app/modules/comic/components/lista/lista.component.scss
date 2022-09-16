@@ -25,6 +25,7 @@
 }
 
 .details {
+  background-color: transparent;
   transition: 0.5s ease;
   opacity: 0;
   position: absolute;
@@ -38,6 +39,8 @@
     border: 1px solid;
     border-radius: 10px;
     cursor: pointer;
+    padding: 10px;
+    width: 100%;
   }
 }
 

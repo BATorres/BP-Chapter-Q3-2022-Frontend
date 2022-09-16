@@ -1,10 +1,30 @@
 <div class="container">
-    <img class="image" src="https://imgs.search.brave.com/RLcIfLONB_8KiCJbaGC8TVG9przHj3oXpI30QgCYi04/rs:fit:1200:449:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2E5L2Ni/L2ZkL2E5Y2JmZDE4/MTE0MTdmN2VjMGE2/OTE2OTczNDA3MWM3/LmpwZw" alt="portada">
-    <div class="real-name">Nombre real</div>
-</div>
+    <div class="cover">
+        <img class="image" [src]="selectedComic?.imageUrl" alt="portada">
+    </div>
 
-<div>
-    <div>Aquí nombre comic</div>
-    <div>Aqui caracteristicas</div>
-    <div>Aquì descripcion</div>
+    <div class="detail">
+        <div class="detail__name">{{ selectedComic?.name | uppercase }}</div>
+        <div>{{ selectedComic?.realName !== null ? selectedComic?.realName : ''}}</div>
+        <div class="detail__characteristics">
+            <div class="detail__characteristics__item">
+                <img src="assets/images/lighting.png" alt="" width="70px">
+                <div class="detail__characteristics__item__description">{{ selectedComic?.characteristic }}</div>
+            </div>
+            <div class="detail__characteristics__item">
+                <img src="assets/images/rocket.png" alt="" width="70px">
+                <div class="detail__characteristics__item__description">Debutó en el año {{ selectedComic?.debutYear }}</div>
+            </div>
+            <div class="detail__characteristics__item">
+                <img src="assets/images/comic.png" alt="" width="70px">
+                <div class="detail__characteristics__item__description">{{ selectedComic?.numberIssues }} comics</div>
+            </div>
+        </div>
+        <div class="detail__about">
+            <div class="detail__about__title">Acerca de:</div>
+            <div class="detail__about__description">
+                {{ selectedComic?.description }}
+            </div>
+        </div>
+    </div>
 </div>

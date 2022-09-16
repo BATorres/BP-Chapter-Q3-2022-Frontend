@@ -9,60 +9,8 @@ import { ComicService } from '../../services/comic.service';
 })
 export class ListaComponent implements OnInit {
   showModal: boolean = false;
-  series = [
-    {
-      id: '1',
-      nombre: 'The sandman',
-      imagen: 'https://2.bp.blogspot.com/-Mz27kqWmoV0/Vpy5pxYCeTI/AAAAAAAABPc/ha_1ICJdAgc/s1600-Ic42/3.jpg',
-      comics: [
-        {
-          nombre: 'Preludios y nocturnos 1',
-          imagen: '',
-
-        }
-      ],
-    },
-    {
-      id: '1',
-      nombre: 'Guardianes de la galaxia',
-      imagen: 'https://readcomiconline.li/Uploads/Etc/1-24-2019/8267214307147.jpg',
-    },
-    {
-      id: '1',
-      nombre: 'Guardianes de la galaxia',
-      imagen: 'https://readcomiconline.li/Uploads/Etc/1-24-2019/8267214307147.jpg',
-    },
-    {
-      id: '1',
-      nombre: 'Guardianes de la galaxia',
-      imagen: 'https://readcomiconline.li/Uploads/Etc/1-24-2019/8267214307147.jpg',
-    },
-    {
-      id: '1',
-      nombre: 'Guardianes de la galaxia',
-      imagen: 'https://readcomiconline.li/Uploads/Etc/1-24-2019/8267214307147.jpg',
-    },
-    {
-      id: '1',
-      nombre: 'Guardianes de la galaxia',
-      imagen: 'https://readcomiconline.li/Uploads/Etc/1-24-2019/8267214307147.jpg',
-    },
-    {
-      id: '1',
-      nombre: 'Guardianes de la galaxia',
-      imagen: 'https://readcomiconline.li/Uploads/Etc/1-24-2019/8267214307147.jpg',
-    },
-    {
-      id: '1',
-      nombre: 'Guardianes de la galaxia',
-      imagen: 'https://readcomiconline.li/Uploads/Etc/1-24-2019/8267214307147.jpg',
-    },
-    {
-      id: '1',
-      nombre: 'Guardianes de la galaxia',
-      imagen: 'https://readcomiconline.li/Uploads/Etc/1-24-2019/8267214307147.jpg',
-    },
-  ];
+  series = [];
+  comicToEdit: any = undefined;
 
   constructor(
     private _comicService: ComicService,
@@ -76,11 +24,9 @@ export class ListaComponent implements OnInit {
   getComicList() {
     this._comicService.getAllComics().subscribe(
       (comics) => {
-        console.log('quejesto', comics)
+        this.series = comics;
       },
-      (error) => {
-        console.error("No se han encontrado comics");
-      }
+      (error) => console.error(error),
     );
   }
 
@@ -90,9 +36,16 @@ export class ListaComponent implements OnInit {
 
   openModal() {
     this.showModal = true;
+    this.comicToEdit = undefined;
   }
 
   listenFormButtons(event: boolean) {
     this.showModal = event;
+    this.getComicList();
+  }
+
+  edit(comic) {
+    this.showModal = true;
+    this.comicToEdit = comic;
   }
 }

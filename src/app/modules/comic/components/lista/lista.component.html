@@ -7,8 +7,9 @@
 <div class="row" *ngFor="let serie of series">
     <div class="col">
       <div class="image-container">
-        <img class="image" [src]="serie.imagen" alt="" style="width: 100%;"/>
+        <img class="image" [src]="serie.imageUrl" alt="" style="width: 100%;"/>
         <div class="details">
+          <button class="details__button" (click)="edit(serie)">Editar</button>
           <button class="details__button" (click)="goToDetails(serie.id)">Mostrar detalles</button>
         </div>
       </div> 
@@ -17,6 +18,7 @@
 
 <div *ngIf="showModal">
   <app-form
+    [data]="comicToEdit"
     (sendModalResponse)="listenFormButtons($event)"
   ></app-form>
 </div>
