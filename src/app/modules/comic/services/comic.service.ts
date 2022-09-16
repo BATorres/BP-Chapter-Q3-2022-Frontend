@@ -24,7 +24,7 @@ export class ComicService {
   }
 
   createComic(data: any): Observable<any> {
-    return this._httpClient.post(this.url, data);
+    return this._httpClient.post(this.url, {dataComic: data});
   }
 
   updateComic(data: any): Observable<any> {

@@ -8,6 +8,7 @@ import { ComicService } from '../../services/comic.service';
   styleUrls: ['./lista.component.scss']
 })
 export class ListaComponent implements OnInit {
+  showModal: boolean = false;
   series = [
     {
       id: '1',
@@ -85,5 +86,13 @@ export class ListaComponent implements OnInit {
 
   goToDetails(id: string) {
     this._router.navigate([`/comics/${id}`]);
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  listenFormButtons(event: boolean) {
+    this.showModal = event;
   }
 }

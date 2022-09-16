@@ -1,7 +1,7 @@
 <div class="list">
   <h3>Lista de comics disponibles</h3>
   <input class="list__searchbar" type="text" placeholder="Buscar un comic por su nombre" />
-  <button class="list__button">+ Agregar comic</button>
+  <button class="list__button" (click)="openModal()">+ Agregar comic</button>
 </div>
 
 <div class="row" *ngFor="let serie of series">
@@ -13,4 +13,10 @@
         </div>
       </div> 
     </div>
+</div>
+
+<div *ngIf="showModal">
+  <app-form
+    (sendModalResponse)="listenFormButtons($event)"
+  ></app-form>
 </div>

@@ -1,0 +1,75 @@
+.comic-form {
+  background: white;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.25rem;
+  color: #111e27;
+  top: 50%;
+  left: 50%;
+  padding: 25px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  z-index: 100;
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+}
+
+.modal-buttons {
+  float: right;
+  margin-left: 3%;
+}
+
+form {
+  background-color: #ffffff;
+}
+
+.row {
+  display: inline-flex;
+}
+
+.col {
+  background-color: #ffffff;
+  flex: 50%;
+  padding: 15px;
+}
+
+b {
+  background-color: #ffffff;
+  color: #111e27;
+}
+
+input {
+  background-color: #ffffff;
+  border: auto;
+  border-radius: 10px;
+  color: #111e27;
+  padding: 6px 12px;
+  height: 35px;
+}
+
+textarea {
+  background-color: #ffffff;
+  border: auto;
+  border-radius: 10px;
+  color: #111e27;
+  width: 450px;
+  max-width: 450px;
+  max-height: 120px;
+}
+
+button {
+  border-color: #ffffff;
+  border: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 35px;
+}
