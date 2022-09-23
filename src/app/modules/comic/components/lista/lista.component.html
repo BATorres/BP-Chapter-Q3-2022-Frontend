@@ -1,0 +1,24 @@
+<div class="list">
+  <h3>Lista de comics disponibles</h3>
+  <input class="list__searchbar" type="text" placeholder="Buscar un comic por su nombre" />
+  <button class="list__button" (click)="openModal()">+ Agregar comic</button>
+</div>
+
+<div class="row" *ngFor="let serie of series">
+    <div class="col">
+      <div class="image-container">
+        <img class="image" [src]="serie.imageUrl" alt="" style="width: 100%;"/>
+        <div class="details">
+          <button class="details__button" (click)="edit(serie)">Editar</button>
+          <button class="details__button" (click)="goToDetails(serie.id)">Mostrar detalles</button>
+        </div>
+      </div> 
+    </div>
+</div>
+
+<div *ngIf="showModal">
+  <app-form
+    [data]="comicToEdit"
+    (sendModalResponse)="listenFormButtons($event)"
+  ></app-form>
+</div>

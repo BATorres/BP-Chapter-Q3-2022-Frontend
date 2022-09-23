@@ -1,0 +1,49 @@
+<div class="modal-overlay" id="modal-overlay"></div>
+
+<div class="comic-form">
+    Formulario comic
+    <form [formGroup]="form" novalidate autocomplete="off">
+        <div class="row">
+            <div class="col">
+                <b>Nombre</b> <br>
+                <input type="text" placeholder="Ingrese el nombre del comic" formControlName="name">
+            </div>
+            <div class="col">
+                <b>Nombre real (si aplica)</b> <br>
+                <input type="text" placeholder="Ingrese el nombre real del protagonista del comic" formControlName="realName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <b>Característica</b> <br>
+                <input type="text" placeholder="Ingrese la característica que distingue al protagonista" formControlName="characteristic">
+            </div>
+            <div class="col">
+                <b>Año de debut</b> <br>
+                <input type="text" placeholder="Ingrese el año de debut del comic" formControlName="debutYear">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <b>Número de comics</b> <br>
+                <input type="text" placeholder="Ingrese el número total de comics" formControlName="numberIssues">
+            </div>
+            <div class="col">
+                <b>URL de la imagen</b> <br>
+                <input type="text" placeholder="Ingrese el url de la portada del comic" formControlName="imageUrl">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <b>Descripción</b> <br>
+                <textarea placeholder="Ingrese una breve descripción del comic" formControlName="description"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button (click)="submit()" [disabled]="form.valid">Guardar</button>
+                <button (click)="cancel()" data-test="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,47 @@
+.container {
+    padding: 25px;
+    position: relative;
+}
+
+.image {
+    width: 85%;
+}
+
+.cover {
+    width: 40%;
+    float: left;
+}
+
+.detail {
+    width: 60%;
+    float: left;
+    &__name {
+        font-size: 50px;
+    }
+    &__characteristics {
+        display: flex;
+        &__item {
+            flex: 33%;
+            padding-bottom: 50px;
+            padding-top: 20px;
+            text-align: center;
+            &__description {
+                padding-top: 10px;
+                text-align: center;
+            }
+        }
+    }
+    &__about {
+        &__title {
+            font-size: 25px;
+            padding-bottom: 25px;
+        }
+        &__description {
+            border: 1px solid #ffff;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+    }
+}
