@@ -1,4 +1,4 @@
-# BP-Chapter-Q3-2022-Backend
+# BP-Chapter-Q3-2022-Frontend
 
 A continuación se muestran las pantallas realizadas durante el presente Q, además de los resultados del coverage de las pruebas unitarias aplicadas.
 
