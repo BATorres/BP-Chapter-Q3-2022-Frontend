@@ -41,7 +41,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button (click)="submit()">Guardar</button>
+                <button (click)="submit()" [disabled]="form.valid">Guardar</button>
                 <button (click)="cancel()" data-test="btn-cancel">Cancelar</button>
             </div>
         </div>
